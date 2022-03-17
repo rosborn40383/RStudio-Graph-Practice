@@ -42,8 +42,14 @@ cor(cc,cc)
 is.na(cc)
 dc<-c[rowSums(is.na(c))==0]
 cc%>%
-na.omit(cc)
+  na.omit(cc)
 c%>%
   na.omit(c)
-cor(cc,cc)
 sapply(cc,class)
+cc[]<-lapply(cc, function(x) as.numeric(as.character(x)))
+sapply(cc,class)
+na.pass(cc)
+cor(cc, y = NULL, use = "na.or.complete")
+corr<- cor(cc, y = NULL, use = "na.or.complete")
+heatmap(corr)
+
