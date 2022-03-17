@@ -1,4 +1,5 @@
-install.packages("ggplot2")
+install.packages("plotly")
+library(plotly)
 library(ggplot2)
 library(corrplot)
 library(datasets)
@@ -34,12 +35,15 @@ names(c)[25]<-"highway_mpg"
 names(c)[26]<-"price"
 describe(c,na.rm=TRUE,skew=FALSE)
 sapply(c,class)
-cc<-subset(c, select = c("length","width","height","curb_weight","engine_size","compression_ratio","city_mpg","highway_mpg","price")) 
+cc<-subset(c, select = c("horsepower","length","width","height","curb_weight","engine_size","bore","stroke","compression_ratio","city_mpg","highway_mpg","price")) 
 car<-na.omit(c)
 car
 cor(cc,cc)
 is.na(cc)
 dc<-c[rowSums(is.na(c))==0]
-ggph<-ggplot(cc,aes("length","width"))
-geom_tile(aes(fill=value))
-ggph
+cc%>%
+na.omit(cc)
+c%>%
+  na.omit(c)
+cor(cc,cc)
+sapply(cc,class)
