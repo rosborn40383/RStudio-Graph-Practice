@@ -1,4 +1,4 @@
-
+#Installing the packages that will be neccessary
 library(plotly)
 library(ggplot2)
 library(corrplot)
@@ -36,11 +36,8 @@ names(c)[26]<-"price"
 describe(c,na.rm=TRUE,skew=FALSE)
 sapply(c,class)
 cc<-subset(c, select = c("normalized_losses","wheel_base","horsepower","length","width","height","curb_weight","engine_size","bore","stroke","compression_ratio","peak_rpm","city_mpg","highway_mpg","price")) 
-car<-na.omit(c)
-car
 cor(cc,cc)
 is.na(cc)
-dc<-c[rowSums(is.na(c))==0]
 cc%>%
   na.omit(cc)
 c%>%
@@ -92,3 +89,41 @@ ggplot(data=categ, mapping=aes(x=fuel_system)) + geom_histogram(fill="blue", col
 
 pairs(cc)
 
+
+#BOX PLOT
+ggplot(c, aes(x=make, y=price)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=engine_size)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=normalized_losses)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=wheel_base)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=bore)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=stroke)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=compression_ratio)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=horsepower)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=peak_rpm)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=city_mpg)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=highway_mpg)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
+ggplot(c, aes(x=make, y=price)) + 
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=4)
